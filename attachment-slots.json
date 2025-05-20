@@ -1,0 +1,136 @@
+{
+  "1": [
+    {
+      "id": "barrel_1",
+      "name": "Barrel"
+    },
+    {
+      "id": "handguard_1",
+      "name": "Handguard"
+    },
+    {
+      "id": "muzzle_1",
+      "name": "Muzzle"
+    },
+    {
+      "id": "stock_1",
+      "name": "Stock"
+    },
+    {
+      "id": "grip_1",
+      "name": "Pistol Grip"
+    },
+    {
+      "id": "sight_1",
+      "name": "Sight"
+    },
+    {
+      "id": "mount_1",
+      "name": "Mount"
+    },
+    {
+      "id": "underbarrel_1",
+      "name": "Underbarrel"
+    },
+    {
+      "id": "magazine_1",
+      "name": "Magazine"
+    },
+    {
+      "id": "receiver_1",
+      "name": "Receiver"
+    },
+    {
+      "id": "bolt_1",
+      "name": "Bolt"
+    }
+  ],
+  "2": [
+    {
+      "id": "barrel_2",
+      "name": "Barrel"
+    },
+    {
+      "id": "handguard_2",
+      "name": "Handguard"
+    },
+    {
+      "id": "muzzle_2",
+      "name": "Muzzle"
+    },
+    {
+      "id": "stock_2",
+      "name": "Stock"
+    },
+    {
+      "id": "grip_2",
+      "name": "Pistol Grip"
+    },
+    {
+      "id": "sight_2",
+      "name": "Sight"
+    },
+    {
+      "id": "mount_2",
+      "name": "Mount"
+    },
+    {
+      "id": "gasblock_2",
+      "name": "Gas Block"
+    },
+    {
+      "id": "magazine_2",
+      "name": "Magazine"
+    },
+    {
+      "id": "receiver_2",
+      "name": "Receiver"
+    }
+  ],
+  "3": [
+    {
+      "id": "barrel_3",
+      "name": "Barrel"
+    },
+    {
+      "id": "handguard_3",
+      "name": "Handguard"
+    },
+    {
+      "id": "muzzle_3",
+      "name": "Muzzle"
+    },
+    {
+      "id": "stock_3",
+      "name": "Stock"
+    },
+    {
+      "id": "grip_3",
+      "name": "Pistol Grip"
+    },
+    {
+      "id": "sight_3",
+      "name": "Sight"
+    },
+    {
+      "id": "mount_3",
+      "name": "Mount"
+    },
+    {
+      "id": "underbarrel_3",
+      "name": "Underbarrel"
+    },
+    {
+      "id": "magazine_3",
+      "name": "Magazine"
+    },
+    {
+      "id": "receiver_3",
+      "name": "Receiver"
+    },
+    {
+      "id": "bolt_3",
+      "name": "Bolt"
+    }
+  ]
+}

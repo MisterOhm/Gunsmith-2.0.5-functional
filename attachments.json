@@ -1,0 +1,278 @@
+[
+  {
+    "id": "a1",
+    "name": "Suppressor",
+    "type": "muzzle",
+    "category": "functional",
+    "description": "Standard suppressor that reduces sound signature and muzzle flash.",
+    "imageUrl": "https://i.imgur.com/placeholder-suppressor.jpg",
+    "compatibleSlots": ["muzzle_1", "muzzle_2", "muzzle_3"],
+    "statModifiers": [
+      {
+        "stat": "muzzleVelocity",
+        "value": -15
+      },
+      {
+        "stat": "verticalRecoil",
+        "value": -10
+      },
+      {
+        "stat": "horizontalRecoil",
+        "value": -5
+      },
+      {
+        "stat": "weight",
+        "value": 0.5
+      }
+    ]
+  },
+  {
+    "id": "a2",
+    "name": "Tactical Grip",
+    "type": "grip",
+    "category": "functional",
+    "description": "Ergonomic grip that improves weapon handling.",
+    "imageUrl": "https://i.imgur.com/placeholder-grip.jpg",
+    "compatibleSlots": ["grip_1", "grip_3"],
+    "statModifiers": [
+      {
+        "stat": "ergonomics",
+        "value": 10
+      },
+      {
+        "stat": "verticalRecoil",
+        "value": -5
+      }
+    ]
+  },
+  {
+    "id": "a3",
+    "name": "Extended Barrel",
+    "type": "barrel",
+    "category": "vital",
+    "description": "Longer barrel that increases muzzle velocity and effective range.",
+    "imageUrl": "https://i.imgur.com/placeholder-barrel.jpg",
+    "compatibleSlots": ["barrel_1", "barrel_3"],
+    "statModifiers": [
+      {
+        "stat": "muzzleVelocity",
+        "value": 75
+      },
+      {
+        "stat": "effectiveDistance",
+        "value": 100
+      },
+      {
+        "stat": "accuracy",
+        "value": 8
+      },
+      {
+        "stat": "weight",
+        "value": 0.8
+      },
+      {
+        "stat": "ergonomics",
+        "value": -5
+      }
+    ]
+  },
+  {
+    "id": "a4",
+    "name": "Holographic Sight",
+    "type": "sight",
+    "category": "equipment",
+    "description": "Modern holographic weapon sight that enhances targeting.",
+    "imageUrl": "https://i.imgur.com/placeholder-holosight.jpg",
+    "compatibleSlots": ["sight_1", "sight_2", "sight_3"],
+    "statModifiers": [
+      {
+        "stat": "sightingRange",
+        "value": 50
+      },
+      {
+        "stat": "ergonomics",
+        "value": -2
+      },
+      {
+        "stat": "weight",
+        "value": 0.3
+      }
+    ]
+  },
+  {
+    "id": "a5",
+    "name": "Tactical Stock",
+    "type": "stock",
+    "category": "vital",
+    "description": "Adjustable stock with improved cheek weld for better stability.",
+    "imageUrl": "https://i.imgur.com/placeholder-stock.jpg",
+    "compatibleSlots": ["stock_1", "stock_3"],
+    "statModifiers": [
+      {
+        "stat": "ergonomics",
+        "value": 8
+      },
+      {
+        "stat": "verticalRecoil",
+        "value": -12
+      },
+      {
+        "stat": "horizontalRecoil",
+        "value": -8
+      },
+      {
+        "stat": "weight",
+        "value": 0.2
+      }
+    ]
+  },
+  {
+    "id": "a6",
+    "name": "Foregrip",
+    "type": "underbarrel",
+    "category": "functional",
+    "description": "Vertical foregrip that improves weapon control.",
+    "imageUrl": "https://i.imgur.com/placeholder-foregrip.jpg",
+    "compatibleSlots": ["underbarrel_1", "underbarrel_3"],
+    "statModifiers": [
+      {
+        "stat": "verticalRecoil",
+        "value": -8
+      },
+      {
+        "stat": "horizontalRecoil",
+        "value": -5
+      },
+      {
+        "stat": "ergonomics",
+        "value": 6
+      }
+    ]
+  },
+  {
+    "id": "a7",
+    "name": "Rail Handguard",
+    "type": "handguard",
+    "category": "vital",
+    "description": "Modern handguard with multiple attachment rails.",
+    "imageUrl": "https://i.imgur.com/placeholder-handguard.jpg",
+    "compatibleSlots": ["handguard_1", "handguard_3"],
+    "statModifiers": [
+      {
+        "stat": "ergonomics",
+        "value": 5
+      },
+      {
+        "stat": "weight",
+        "value": 0.4
+      }
+    ]
+  },
+  {
+    "id": "a8",
+    "name": "Extended Magazine",
+    "type": "magazine",
+    "category": "functional",
+    "description": "High-capacity magazine that holds more rounds.",
+    "imageUrl": "https://i.imgur.com/placeholder-magazine.jpg",
+    "compatibleSlots": ["magazine_1", "magazine_2", "magazine_3"],
+    "statModifiers": [
+      {
+        "stat": "weight",
+        "value": 0.3
+      },
+      {
+        "stat": "ergonomics",
+        "value": -3
+      }
+    ]
+  },
+  {
+    "id": "a9",
+    "name": "Flash Hider",
+    "type": "muzzle",
+    "category": "functional",
+    "description": "Reduces visible flash when firing.",
+    "imageUrl": "https://i.imgur.com/placeholder-flashhider.jpg",
+    "compatibleSlots": ["muzzle_1", "muzzle_2", "muzzle_3"],
+    "statModifiers": [
+      {
+        "stat": "verticalRecoil",
+        "value": -5
+      },
+      {
+        "stat": "weight",
+        "value": 0.1
+      }
+    ]
+  },
+  {
+    "id": "a10",
+    "name": "ACOG Scope",
+    "type": "sight",
+    "category": "equipment",
+    "description": "4x magnification combat optical sight.",
+    "imageUrl": "https://i.imgur.com/placeholder-acog.jpg",
+    "compatibleSlots": ["sight_1", "sight_2", "sight_3"],
+    "statModifiers": [
+      {
+        "stat": "sightingRange",
+        "value": 150
+      },
+      {
+        "stat": "ergonomics",
+        "value": -5
+      },
+      {
+        "stat": "weight",
+        "value": 0.5
+      }
+    ]
+  },
+  {
+    "id": "a11",
+    "name": "Compensator",
+    "type": "muzzle",
+    "category": "functional",
+    "description": "Reduces recoil by redirecting propellant gases.",
+    "imageUrl": "https://i.imgur.com/placeholder-compensator.jpg",
+    "compatibleSlots": ["muzzle_1", "muzzle_2", "muzzle_3"],
+    "statModifiers": [
+      {
+        "stat": "verticalRecoil",
+        "value": -15
+      },
+      {
+        "stat": "horizontalRecoil",
+        "value": -10
+      },
+      {
+        "stat": "weight",
+        "value": 0.2
+      }
+    ]
+  },
+  {
+    "id": "a12",
+    "name": "Lightweight Bolt",
+    "type": "bolt",
+    "category": "vital",
+    "description": "Reduced weight bolt carrier group for faster cycling.",
+    "imageUrl": "https://i.imgur.com/placeholder-bolt.jpg",
+    "compatibleSlots": ["bolt_1", "bolt_3"],
+    "statModifiers": [
+      {
+        "stat": "fireRate",
+        "value": 50
+      },
+      {
+        "stat": "weight",
+        "value": -0.2
+      },
+      {
+        "stat": "durability",
+        "value": -5
+      }
+    ]
+  }
+]

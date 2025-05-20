@@ -1,0 +1,689 @@
+/* AdminPanel.css */
+.admin-container {
+    display: flex;
+    height: 100vh;
+    background-color: #f0f2f5;
+    font-family: 'Rajdhani', sans-serif;
+  }
+  
+  .admin-sidebar {
+    width: 250px;
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+    padding: 20px 0;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .admin-logo {
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 0 20px 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #333;
+  }
+  
+  .admin-nav {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .admin-nav button {
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 12px 25px;
+    color: #aaa;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .admin-nav button:hover {
+    background-color: #252525;
+    color: #fff;
+  }
+  
+  .admin-nav button.active {
+    background-color: #333;
+    color: #00b4ff;
+    border-left: 3px solid #00b4ff;
+  }
+  
+  .admin-content {
+    flex: 1;
+    padding: 30px;
+    overflow-y: auto;
+  }
+  
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+  
+  .section-header h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+  }
+  
+  .add-button {
+    background-color: #00b4ff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .add-button:hover {
+    background-color: #0099e6;
+  }
+  
+  /* Weapons List */
+  .weapons-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .weapon-item {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  }
+  
+  .weapon-item img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+    margin-right: 20px;
+  }
+  
+  .weapon-info {
+    flex: 1;
+  }
+  
+  .weapon-info h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+  }
+  
+  .weapon-info p {
+    margin: 0;
+    color: #666;
+  }
+  
+  .model-indicator {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 3px 8px;
+    background-color: rgba(0, 180, 255, 0.1);
+    color: #00b4ff;
+    border-radius: 3px;
+    font-size: 0.8rem;
+  }
+  
+  .weapon-actions {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .weapon-actions button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .weapon-actions button:first-child {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  .weapon-actions button.delete {
+    background-color: #ff4444;
+    color: white;
+  }
+  
+  /* Forms */
+  .weapon-editor, .attachment-editor {
+    background-color: white;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .weapon-editor h3, .attachment-editor h3 {
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .form-columns {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 25px;
+  }
+  
+  .form-column {
+    flex: 1;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+    color: #555;
+  }
+  
+  .form-group input, .form-group textarea, .form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: inherit;
+  }
+  
+  .form-row {
+    display: flex;
+    gap: 15px;
+  }
+  
+  .form-row .form-group {
+    flex: 1;
+  }
+  
+  .upload-section {
+    margin-top: 20px;
+  }
+  
+  .upload-section h4 {
+    margin: 15px 0 5px;
+    color: #555;
+  }
+  
+  .file-upload {
+    border: 2px dashed #ddd;
+    padding: 15px;
+    border-radius: 4px;
+    text-align: center;
+  }
+  
+  .help-text {
+    font-size: 0.8rem;
+    color: #888;
+    margin-top: 5px;
+  }
+  
+  .form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+  }
+  
+  .cancel-button {
+    padding: 10px 20px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .save-button {
+    padding: 10px 20px;
+    background-color: #00b4ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  /* Attachment Points */
+  .attachment-points-list {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+    margin-top: 10px;
+  }
+  
+  .attachment-point-item {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .position-inputs {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+  }
+  
+  .position-inputs label {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+  }
+  
+  .position-inputs input {
+    width: 60px;
+    padding: 5px;
+    margin-left: 5px;
+  }
+  
+  .remove-button {
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.8rem;
+  }
+  
+  .add-attachment-point, .add-stat-modifier {
+    background-color: #555;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 15px;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  /* Attachments Grid */
+  .attachments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+  
+  .attachment-card {
+    background-color: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .attachment-image {
+    height: 150px;
+    background-color: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .attachment-image img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+  
+  .attachment-details {
+    padding: 15px;
+  }
+  
+  .attachment-details h3 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+  }
+  
+  .attachment-type {
+    display: inline-block;
+    background-color: #eee;
+    padding: 3px 8px;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  
+  .attachment-stats {
+    margin-top: 10px;
+  }
+  
+  .stat-modifier {
+    font-size: 0.9rem;
+    margin-bottom: 3px;
+  }
+  
+  .stat-modifier.positive {
+    color: #00aa55;
+  }
+  
+  .stat-modifier.negative {
+    color: #ff4444;
+  }
+  
+  .attachment-actions {
+    display: flex;
+    border-top: 1px solid #eee;
+  }
+  
+  .attachment-actions button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  
+  .attachment-actions button:hover {
+    background-color: #f5f5f5;
+  }
+  
+  .attachment-actions button.delete {
+    color: #ff4444;
+  }
+  
+  .attachment-actions button.delete:hover {
+    background-color: #fff0f0;
+  }
+  
+  /* Attachment Filters */
+  .attachment-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 25px;
+  }
+  
+  .attachment-filters button {
+    padding: 8px 15px;
+    background-color: #f0f0f0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+  
+  .attachment-filters button:hover {
+    background-color: #e0e0e0;
+  }
+  
+  .attachment-filters button.active {
+    background-color: #333;
+    color: #fff;
+  }
+  
+  /* Compatible Slots */
+  .compatible-slots {
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .slot-checkbox {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .slot-checkbox input {
+    margin-right: 8px;
+  }
+  
+  .weapon-name {
+    font-size: 0.8rem;
+    color: #888;
+  }
+  
+  /* Stat Modifiers */
+  .stat-modifiers-list {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 15px;
+  }
+  
+  .stat-modifier-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .stat-modifier-item select {
+    flex: 2;
+  }
+  
+  .stat-modifier-item input {
+    flex: 1;
+    max-width: 100px;
+  }
+  
+  /* Dashboard */
+  .dashboard-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .stat-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .stat-card h3 {
+    margin: 0 0 10px 0;
+    color: #555;
+    font-size: 1.1rem;
+  }
+  
+  .stat-card .value {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  .recent-activity {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+  
+  .recent-activity h3 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+    color: #333;
+  }
+  
+  .activity-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+  }
+  
+  .activity-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+  }
+  
+  .activity-details h4 {
+    margin: 0 0 3px 0;
+    font-size: 1rem;
+  }
+  
+  .activity-details p {
+    margin: 0;
+    color: #888;
+    font-size: 0.9rem;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .admin-container {
+      flex-direction: column;
+    }
+    
+    .admin-sidebar {
+      width: 100%;
+      padding: 10px 0;
+    }
+    
+    .admin-nav {
+      flex-direction: row;
+      overflow-x: auto;
+      padding: 0 10px;
+    }
+    
+    .admin-nav button {
+      padding: 10px 15px;
+      white-space: nowrap;
+    }
+    
+    .form-columns {
+      flex-direction: column;
+    }
+    
+    .attachments-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* Loading and error states */
+  .loading-indicator {
+    padding: 15px;
+    background-color: rgba(0, 180, 255, 0.1);
+    border: 1px solid rgba(0, 180, 255, 0.3);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    color: #00b4ff;
+    text-align: center;
+  }
+  
+  .error-message {
+    padding: 15px;
+    background-color: rgba(255, 60, 60, 0.1);
+    border: 1px solid rgba(255, 60, 60, 0.3);
+    border-radius: 4px;
+    margin-bottom: 20px;
+    color: #ff3c3c;
+    text-align: center;
+    position: relative;
+  }
+  
+  /* Disabled states */
+  button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  input:disabled, textarea:disabled, select:disabled {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+  }
+  
+  /* Floating return button */
+  .floating-return-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 20px;
+    background-color: #00b4ff;
+    color: white;
+    border-radius: 30px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    z-index: 1000;
+    transition: all 0.2s;
+  }
+  
+  .floating-return-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+  }
+  
+  .floating-return-button span {
+    font-weight: 500;
+  }
+  
+  /* Success message */
+  .success-message {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: rgba(0, 200, 100, 0.9);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1010;
+    animation: slideIn 0.3s ease-out forwards;
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  
+  .success-text {
+    margin-right: 15px;
+  }
+  
+  .view-model-button {
+    background-color: white;
+    color: #00aa55;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .close-message {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0 5px;
+  }
+  
+  .file-preview {
+    margin-top: 10px;
+  }
+  
+  .file-preview img {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 3px;
+    background-color: white;
+  }

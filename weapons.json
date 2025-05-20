@@ -1,0 +1,74 @@
+[
+  {
+    "id": "1",
+    "name": "HK 416A5",
+    "caliber": "5.56x45",
+    "imageUrl": "https://i.imgur.com/placeholder-hk416.jpg",
+    "description": "The HK416 is an assault rifle designed and manufactured by Heckler & Koch. It uses the AR-15 platform but replaces the direct impingement gas system with a short-stroke gas piston system.",
+    "baseStats": {
+      "durability": {
+        "max": 100,
+        "current": 100
+      },
+      "weight": 3.4,
+      "ergonomics": 65,
+      "accuracy": 85,
+      "sightingRange": 500,
+      "verticalRecoil": 72,
+      "horizontalRecoil": 150,
+      "muzzleVelocity": 853,
+      "effectiveDistance": 500,
+      "fireRate": 850,
+      "firingModes": ["Single Fire", "Full Auto"],
+      "caliber": "5.56x45"
+    }
+  },
+  {
+    "id": "2",
+    "name": "AK-74M",
+    "caliber": "5.45x39",
+    "imageUrl": "https://i.imgur.com/placeholder-ak74m.jpg",
+    "description": "The AK-74M is the modernized version of the AK-74 assault rifle and the current service rifle of the Russian Armed Forces.",
+    "baseStats": {
+      "durability": {
+        "max": 95,
+        "current": 95
+      },
+      "weight": 3.6,
+      "ergonomics": 55,
+      "accuracy": 75,
+      "sightingRange": 600,
+      "verticalRecoil": 85,
+      "horizontalRecoil": 175,
+      "muzzleVelocity": 900,
+      "effectiveDistance": 650,
+      "fireRate": 650,
+      "firingModes": ["Single Fire", "Full Auto"],
+      "caliber": "5.45x39"
+    }
+  },
+  {
+    "id": "3",
+    "name": "M4A1",
+    "caliber": "5.56x45",
+    "imageUrl": "https://i.imgur.com/placeholder-m4a1.jpg",
+    "description": "The M4A1 is a fully automatic variant of the M4 carbine used by the United States Armed Forces and many NATO countries.",
+    "baseStats": {
+      "durability": {
+        "max": 90,
+        "current": 90
+      },
+      "weight": 3.1,
+      "ergonomics": 70,
+      "accuracy": 80,
+      "sightingRange": 500,
+      "verticalRecoil": 68,
+      "horizontalRecoil": 145,
+      "muzzleVelocity": 840,
+      "effectiveDistance": 500,
+      "fireRate": 800,
+      "firingModes": ["Single Fire", "Full Auto"],
+      "caliber": "5.56x45"
+    }
+  }
+]

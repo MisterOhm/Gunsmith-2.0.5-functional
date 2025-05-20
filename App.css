@@ -1,0 +1,1061 @@
+/* Import a tech/industrial font */
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+/* Reset and global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  background-color: #0a0a0a;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+/* Main container - full screen with absolute positioning for UI elements */
+.app-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  color: #e0e0e0;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+/* Header styles - small and transparent */
+.app-header {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  text-align: center;
+  padding: 0.5rem;
+  pointer-events: none; /* Let clicks pass through to 3D scene */
+}
+
+.app-header h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: rgba(224, 224, 224, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px rgba(0, 180, 255, 0.5);
+  margin: 0;
+}
+
+.app-header h2 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: rgba(160, 160, 160, 0.8);
+  margin: 0.2rem 0;
+}
+
+/* Weapon selector styled as a dropdown */
+.weapon-selector {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  width: 200px;
+}
+
+.weapon-selector select {
+  width: 100%;
+  padding: 8px 12px;
+  background-color: rgba(20, 20, 20, 0.7);
+  color: #e0e0e0;
+  border: 1px solid rgba(100, 100, 100, 0.3);
+  border-radius: 4px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  appearance: none;
+  outline: none;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+}
+
+.weapon-selector select:hover {
+  border-color: rgba(0, 180, 255, 0.5);
+}
+
+.weapon-selector::after {
+  content: '▼';
+  position: absolute;
+  right: 15px;
+  top: 8px;
+  color: rgba(0, 180, 255, 0.7);
+  pointer-events: none;
+}
+
+/* Weapon canvas - full screen */
+.weapon-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, #101010 0%, #050505 100%);
+}
+
+/* Stats panel - positioned at bottom left, compact */
+.stats-panel {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 280px;
+  background-color: rgba(15, 15, 15, 0.7);
+  border: 1px solid rgba(100, 100, 100, 0.2);
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 0.8rem;
+  font-family: 'Rajdhani', sans-serif;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  max-height: 300px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 180, 255, 0.5) rgba(30, 30, 30, 0.7);
+}
+
+.stats-panel h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  color: rgba(0, 180, 255, 0.8);
+  border-bottom: 1px solid rgba(0, 180, 255, 0.3);
+  padding-bottom: 5px;
+}
+
+.stats-panel::-webkit-scrollbar {
+  width: 5px;
+}
+
+.stats-panel::-webkit-scrollbar-track {
+  background: rgba(30, 30, 30, 0.7);
+}
+
+.stats-panel::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 180, 255, 0.5);
+  border-radius: 10px;
+}
+
+/* Stats row styling */
+.stat-row {
+  margin-bottom: 8px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.75rem;
+}
+
+.stat-label {
+  color: #aaa;
+  margin-bottom: 2px;
+}
+
+.stat-bar-container {
+  height: 4px;
+  background-color: rgba(50, 50, 50, 0.7);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 2px;
+}
+
+.stat-bar {
+  height: 100%;
+  background-color: rgba(150, 150, 150, 0.8);
+  border-radius: 2px;
+}
+
+.stat-bar.positive-change {
+  background-color: rgba(0, 200, 100, 0.7);
+}
+
+.stat-bar.negative-change {
+  background-color: rgba(230, 60, 60, 0.7);
+}
+
+.stat-value {
+  text-align: right;
+  color: #ddd;
+  font-size: 0.7rem;
+}
+
+.stat-value.positive-change {
+  color: rgba(0, 200, 100, 0.9);
+}
+
+.stat-value.negative-change {
+  color: rgba(230, 60, 60, 0.9);
+}
+
+/* Attachment point UI - floating connections to weapon parts */
+.attachment-points-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100; /* Add or increase this value */
+}
+
+.attachment-point-ui {
+  position: absolute;
+  pointer-events: auto; /* Make this element clickable */
+  transition: transform 0.2s ease;
+}
+
+.attachment-point-connector {
+  position: absolute;
+  background-color: rgba(0, 180, 255, 0.5);
+  height: 1px;
+  transform-origin: left center;
+  pointer-events: none;
+}
+
+.attachment-point-button {
+  background-color: rgba(20, 20, 20, 0.8);
+  border: 1px solid rgba(100, 100, 100, 0.3);
+  border-radius: 4px;
+  padding: 5px 10px;
+  min-width: 120px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.85rem;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: all 0.2s ease;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+.attachment-point-button:hover {
+  border-color: rgba(0, 180, 255, 0.7);
+  box-shadow: 0 0 15px rgba(0, 180, 255, 0.3);
+}
+
+.attachment-point-button.active {
+  border-color: rgba(0, 180, 255, 0.8);
+  background-color: rgba(30, 30, 30, 0.9);
+}
+
+.attachment-point-icon {
+  width: 24px;
+  height: 24px;
+  background-color: #333;
+  border-radius: 3px;
+  margin-right: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: #aaa;
+}
+
+.attachment-point-name {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.attachment-options-panel {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 180px;
+  background-color: rgba(20, 20, 20, 0.9);
+  border: 1px solid rgba(100, 100, 100, 0.3);
+  border-radius: 4px;
+  overflow: hidden;
+  z-index: 100;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.attachment-option {
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(70, 70, 70, 0.2);
+  transition: background-color 0.2s;
+}
+
+.attachment-option:last-child {
+  border-bottom: none;
+}
+
+.attachment-option:hover {
+  background-color: rgba(50, 50, 50, 0.8);
+}
+
+.attachment-option.selected {
+  background-color: rgba(0, 180, 255, 0.15);
+}
+
+.attachment-option-image {
+  width: 36px;
+  height: 36px;
+  background-color: #333;
+  border-radius: 3px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+
+.attachment-option-details {
+  flex-grow: 1;
+}
+
+.attachment-option-name {
+  font-size: 0.9rem;
+  margin-bottom: 2px;
+}
+
+.attachment-option-stats {
+  font-size: 0.7rem;
+  color: #888;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.attachment-option-stat {
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.stat-up {
+  color: rgba(0, 200, 100, 0.9);
+}
+
+.stat-down {
+  color: rgba(230, 60, 60, 0.9);
+}
+
+/* Save button at bottom right */
+.save-button {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  padding: 8px 16px;
+  background-color: rgba(0, 180, 255, 0.2);
+  color: rgba(0, 180, 255, 0.9);
+  border: 1px solid rgba(0, 180, 255, 0.5);
+  border-radius: 4px;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.save-button:hover {
+  background-color: rgba(0, 180, 255, 0.3);
+  box-shadow: 0 0 15px rgba(0, 180, 255, 0.4);
+}
+
+/* Loading state */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: #0a0a0a;
+  color: rgba(0, 180, 255, 0.8);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.loading::after {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-left: 10px;
+  border: 2px solid rgba(0, 180, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: rgba(0, 180, 255, 0.9);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .app-header h1 {
+    font-size: 1.5rem;
+  }
+  
+  .app-header h2 {
+    font-size: 1rem;
+  }
+  
+  .stats-panel {
+    width: 240px;
+    max-height: 250px;
+  }
+  
+  .weapon-selector {
+    width: 160px;
+  }
+}
+
+/* Saved Configs Panel */
+.saved-configs-panel {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 280px;
+  background-color: rgba(15, 15, 15, 0.7);
+  border: 1px solid rgba(100, 100, 100, 0.2);
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 0.8rem;
+  font-family: 'Rajdhani', sans-serif;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 10;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 180, 255, 0.5) rgba(30, 30, 30, 0.7);
+}
+
+.saved-configs-panel h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  color: rgba(0, 180, 255, 0.8);
+  border-bottom: 1px solid rgba(0, 180, 255, 0.3);
+  padding-bottom: 5px;
+}
+
+.saved-configs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.save-config-button {
+  background-color: rgba(0, 180, 255, 0.2);
+  color: rgba(0, 180, 255, 0.9);
+  border: 1px solid rgba(0, 180, 255, 0.5);
+  border-radius: 4px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.save-config-button:hover {
+  background-color: rgba(0, 180, 255, 0.3);
+}
+
+.save-config-form {
+  margin-bottom: 15px;
+  padding: 10px;
+  background-color: rgba(20, 20, 20, 0.5);
+  border-radius: 4px;
+}
+
+.save-config-form input {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  background-color: rgba(30, 30, 30, 0.7);
+  border: 1px solid rgba(100, 100, 100, 0.3);
+  border-radius: 3px;
+  color: #e0e0e0;
+  font-family: 'Rajdhani', sans-serif;
+}
+
+.save-config-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.save-config-actions button {
+  flex: 1;
+  padding: 6px 0;
+  background-color: rgba(0, 180, 255, 0.2);
+  color: rgba(0, 180, 255, 0.9);
+  border: 1px solid rgba(0, 180, 255, 0.5);
+  border-radius: 3px;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.save-config-actions button:hover {
+  background-color: rgba(0, 180, 255, 0.3);
+}
+
+.save-config-actions .save-local-button {
+  background-color: rgba(100, 100, 100, 0.2);
+  color: rgba(200, 200, 200, 0.9);
+  border: 1px solid rgba(100, 100, 100, 0.5);
+}
+
+.save-config-actions .save-local-button:hover {
+  background-color: rgba(100, 100, 100, 0.3);
+}
+
+.saved-configs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.saved-config-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: rgba(30, 30, 30, 0.7);
+  border-radius: 4px;
+  border-left: 3px solid rgba(0, 180, 255, 0.5);
+}
+
+.config-info {
+  flex: 1;
+}
+
+.config-name {
+  font-weight: 500;
+  margin-bottom: 3px;
+}
+
+.config-date {
+  font-size: 0.7rem;
+  color: #aaa;
+}
+
+.local-indicator {
+  display: inline-block;
+  margin-top: 3px;
+  padding: 2px 6px;
+  background-color: rgba(100, 100, 100, 0.3);
+  border-radius: 3px;
+  font-size: 0.7rem;
+  color: #ccc;
+}
+
+.config-actions {
+  display: flex;
+  gap: 5px;
+}
+
+.config-actions button {
+  padding: 4px 8px;
+  background-color: rgba(60, 60, 60, 0.7);
+  border: 1px solid rgba(100, 100, 100, 0.3);
+  border-radius: 3px;
+  color: #ddd;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.config-actions button:hover {
+  background-color: rgba(80, 80, 80, 0.7);
+}
+
+.config-actions .delete-button {
+  background-color: rgba(150, 40, 40, 0.3);
+  color: rgba(255, 150, 150, 0.9);
+}
+
+.config-actions .delete-button:hover {
+  background-color: rgba(150, 40, 40, 0.5);
+}
+
+.error-message, .success-message {
+  padding: 8px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.error-message {
+  background-color: rgba(150, 40, 40, 0.3);
+  color: rgba(255, 150, 150, 0.9);
+  border: 1px solid rgba(150, 40, 40, 0.5);
+}
+
+.success-message {
+  background-color: rgba(40, 150, 80, 0.3);
+  color: rgba(150, 255, 180, 0.9);
+  border: 1px solid rgba(40, 150, 80, 0.5);
+}
+
+.no-configs-message, .loading-indicator {
+  padding: 15px;
+  text-align: center;
+  color: #aaa;
+  font-size: 0.8rem;
+}
+
+/* Comparison Tool styles */
+.comparison-tool {
+  position: absolute;
+  top: 100px;
+  right: 20px;
+  width: 280px;
+  background-color: rgba(15, 15, 15, 0.7);
+  border: 1px solid rgba(100, 100, 100, 0.2);
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 0.8rem;
+  font-family: 'Rajdhani', sans-serif;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 10;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 180, 255, 0.5) rgba(30, 30, 30, 0.7);
+  display: none; /* Hidden by default */
+}
+
+.comparison-tool.active {
+  display: block;
+}
+
+.comparison-tool h3 {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  color: rgba(0, 180, 255, 0.8);
+  border-bottom: 1px solid rgba(0, 180, 255, 0.3);
+  padding-bottom: 5px;
+}
+
+.comparison-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.comparison-close {
+  background: none;
+  border: none;
+  color: #aaa;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.comparison-close:hover {
+  color: #fff;
+}
+
+.comparison-selector {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+
+.comparison-selector select {
+  flex: 1;
+  padding: 6px;
+  background-color: rgba(30, 30, 30, 0.7);
+  border: 1px solid rgba(100, 100, 100, 0.3);
+  border-radius: 3px;
+  color: #e0e0e0;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.8rem;
+}
+
+.compare-stats-row {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.compare-stat-label {
+  flex: 1;
+  color: #aaa;
+}
+
+.compare-stat-value {
+  width: 80px;
+  text-align: right;
+}
+
+.compare-stat-value.current {
+  color: rgba(0, 180, 255, 0.9);
+}
+
+.compare-stat-value.compared {
+  color: rgba(255, 180, 0, 0.9);
+}
+
+.compare-stat-value.better {
+  color: rgba(100, 240, 100, 0.9);
+}
+
+.compare-stat-value.worse {
+  color: rgba(240, 100, 100, 0.9);
+}
+
+.comparison-result {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid rgba(100, 100, 100, 0.3);
+  color: #ddd;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+/* Camera controls panel */
+.camera-controls {
+  position: absolute;
+  bottom: 70px;
+  right: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 10;
+}
+
+.camera-control-button {
+  width: 40px;
+  height: 40px;
+  background-color: rgba(15, 15, 15, 0.7);
+  border: 1px solid rgba(100, 100, 100, 0.2);
+  border-radius: 50%;
+  color: rgba(0, 180, 255, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+}
+
+.camera-control-button:hover {
+  background-color: rgba(30, 30, 30, 0.8);
+  color: rgba(0, 180, 255, 1);
+  transform: scale(1.05);
+}
+
+.camera-control-button:active {
+  transform: scale(0.95);
+}
+
+.camera-control-button.reset {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* Preset configs button */
+.preset-configs-button {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 16px;
+  background-color: rgba(15, 15, 15, 0.7);
+  border: 1px solid rgba(100, 100, 100, 0.2);
+  border-radius: 20px;
+  color: rgba(0, 180, 255, 0.8);
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  z-index: 10;
+}
+
+.preset-configs-button:hover {
+  background-color: rgba(30, 30, 30, 0.8);
+  color: rgba(0, 180, 255, 1);
+}
+
+/* Preset configs modal */
+.preset-configs-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.preset-configs-content {
+  width: 700px;
+  max-width: 90vw;
+  max-height: 80vh;
+  overflow-y: auto;
+  background-color: rgba(20, 20, 20, 0.95);
+  border: 1px solid rgba(100, 100, 100, 0.3);
+  border-radius: 8px;
+  padding: 25px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.preset-configs-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(100, 100, 100, 0.3);
+}
+
+.preset-configs-header h2 {
+  font-size: 1.5rem;
+  color: rgba(0, 180, 255, 0.9);
+  margin: 0;
+}
+
+.preset-configs-close {
+  background: none;
+  border: none;
+  color: #aaa;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.preset-configs-close:hover {
+  color: #fff;
+}
+
+.preset-configs-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.preset-config-card {
+  border: 1px solid rgba(100, 100, 100, 0.3);
+  border-radius: 5px;
+  overflow: hidden;
+  transition: transform 0.2s, border-color 0.2s;
+  cursor: pointer;
+}
+
+.preset-config-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(0, 180, 255, 0.5);
+}
+
+.preset-config-image {
+  height: 120px;
+  background-color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #aaa;
+  overflow: hidden;
+}
+
+.preset-config-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.preset-config-details {
+  padding: 12px;
+}
+
+.preset-config-name {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #eee;
+}
+
+.preset-config-type {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-bottom: 8px;
+}
+
+.preset-config-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.preset-config-stat {
+  padding: 3px 6px;
+  background-color: rgba(30, 30, 30, 0.7);
+  border-radius: 3px;
+  font-size: 0.7rem;
+  color: #ccc;
+}
+
+.preset-config-stat.positive {
+  background-color: rgba(0, 100, 50, 0.3);
+  color: rgba(100, 240, 100, 0.9);
+}
+
+.preset-config-stat.negative {
+  background-color: rgba(100, 30, 30, 0.3);
+  color: rgba(240, 100, 100, 0.9);
+}
+
+/* Export panel */
+.export-panel {
+  position: absolute;
+  bottom: 70px;
+  left: 20px;
+  background-color: rgba(15, 15, 15, 0.7);
+  border: 1px solid rgba(100, 100, 100, 0.2);
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 0.8rem;
+  font-family: 'Rajdhani', sans-serif;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+  z-index: 10;
+  display: flex;
+  gap: 10px;
+}
+
+.export-button {
+  padding: 8px 12px;
+  background-color: rgba(60, 60, 60, 0.7);
+  border: 1px solid rgba(100, 100, 100, 0.3);
+  border-radius: 4px;
+  color: #ddd;
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.export-button:hover {
+  background-color: rgba(80, 80, 80, 0.7);
+}
+
+.export-button svg {
+  width: 16px;
+  height: 16px;
+  fill: currentColor;
+}
+
+/* Attachment point editor styles */
+.preview-visualization {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  background-color: #222;
+  border: 1px solid #444;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+.preview-marker {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(0, 180, 255, 0.8);
+  transform-origin: center;
+  box-shadow: 0 0 5px rgba(0, 180, 255, 0.5);
+}
+
+.preview-label {
+  font-size: 0.8rem;
+  color: #aaa;
+  margin-top: 10px;
+}
+
+.attachment-point-preview {
+  margin-top: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed #444;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .saved-configs-panel,
+  .comparison-tool {
+    width: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .saved-configs-panel {
+    top: auto;
+    bottom: 70px;
+    left: 20px;
+    width: 200px;
+    max-height: 300px;
+  }
+  
+  .comparison-tool {
+    top: auto;
+    bottom: 70px;
+    right: 20px;
+    width: 200px;
+    max-height: 300px;
+  }
+  
+  .camera-controls {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .preset-configs-list {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  
+  .export-panel {
+    bottom: 20px;
+    flex-direction: column;
+    padding: 10px;
+  }
+  
+  .export-button {
+    padding: 6px 10px;
+    font-size: 0.7rem;
+  }
+}
